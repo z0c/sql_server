@@ -1,0 +1,53 @@
+---
+driver:
+  name: hyperv
+  parent_vhd_folder: <%= ENV['HYPERV_BASE_IMAGE_FOLDER'] %>
+  iso_path: D:\reference\iso\Other\en_sql_server_2014_developer_edition_x64_dvd_3940406.iso
+  memory_startup_bytes: 1073741824
+
+transport:
+  password: <%= ENV['HYPERV_PASSWORD'] %>
+
+provisioner:
+  name: chef_zero_scheduled_task
+  chef_omnibus_url: 'https://gist.githubusercontent.com/smurawski/a024ac8e7e0f05efb7ec/raw/9bf7e5485e43e065ff924963499d2ebcb9393d91/install.ps1'
+
+verifier:
+  name: pester
+
+platforms:
+  - name: win2008r2-chef11.16.4
+    driver_config:
+      parent_vhd_name: 'Windows2008R2-Base.vhd'
+    provisioner:
+      require_chef_omnibus: 11.16.4
+  - name: win2008r2-chef12
+    driver_config:
+      parent_vhd_name: 'Windows2008R2-Base.vhd'
+    provisioner:
+      require_chef_omnibus: 12
+  - name: win2012-chef11.16.4
+    driver_config:
+      parent_vhd_name: 'Windows2012-Base.vhd'
+    provisioner:
+      require_chef_omnibus: 11.16.4
+  - name: win2012-chef12
+    driver_config:
+      parent_vhd_name: 'Windows2012-Base.vhd'
+    provisioner:
+      require_chef_omnibus: 12
+  - name: win2012r2-chef11.16.4
+    driver_config:
+      parent_vhd_name: 'Windows2012R2-Base.vhd'
+    provisioner:
+      require_chef_omnibus: 11.16.4
+  - name: win2012r2-chef12
+    driver_config:
+      parent_vhd_name: 'Windows2012R2-Base.vhd'
+    provisioner:
+      require_chef_omnibus: 12
+
+suites:
+  - name: instance
+    run_list:
+      - recipe[minimal::instance]

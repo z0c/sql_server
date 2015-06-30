@@ -1,9 +1,9 @@
 #
-# Author:: Seth Chisamore (<schisamo@chef.io>)
+# Author:: Steven Murawski (<smurawski@chef.io>)
 # Cookbook Name:: sql_server
 # Attribute:: default
 #
-# Copyright:: Copyright (c) 2011 Chef Software, Inc.
+# Copyright:: Copyright (c) 2015 Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,14 +17,3 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-default['sql_server']['accept_eula'] = false
-default['sql_server']['product_key'] = nil
-default['sql_server']['version'] = '2008R2'
-
-case node['sql_server']['version']
-when '2008R2'
-  default['sql_server']['reg_version'] = 'MSSQL10_50.'
-when '2012'
-  default['sql_server']['reg_version'] = 'MSSQL11.'
-end
