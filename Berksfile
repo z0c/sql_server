@@ -1,5 +1,5 @@
-source "https://supermarket.getchef.com"
+source 'https://supermarket.getchef.com'
 
 metadata
 
-cookbook 'minimal', :path => 'test/cookbooks/minimal'
+cookbook 'minimal', path: 'test/cookbooks/minimal'

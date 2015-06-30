@@ -4,7 +4,7 @@ cookbook_file 'c:\sql\ConfigurationFile.ini' do
   source 'ConfigurationFile.ini'
 end
 
-directory "c:\\MNTDATA1"
+directory 'c:\\MNTDATA1'
 
 powershell_script 'Install SQL Server' do
   code <<-EOH
