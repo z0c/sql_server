@@ -33,6 +33,7 @@ default['sql_server']['rs_startup'] = 'Automatic'
 default['sql_server']['browser_startup'] = 'Disabled'
 default['sql_server']['sysadmins'] = ['Administrator']
 default['sql_server']['sql_account'] = 'NT AUTHORITY\NETWORK SERVICE'
+default['sql_server']['sql_collation'] = 'SQL_Latin1_General_CP1_CI_AS'
 
 default['sql_server']['server']['installer_timeout'] = 1500
 
